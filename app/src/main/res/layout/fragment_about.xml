@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="41dp"
+        android:text="About"
+        android:id="@+id/aboutTitle"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:textSize="30sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="41dp"
+        android:id="@+id/release"
+        android:text="@string/buildString"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:layout_below="@id/aboutTitle"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/release"
+        android:id="@+id/aboutText"
+        android:textColor="#ffffff"
+        android:text="@string/abouttText"
+        />
+
+    <TextView
+        android:id="@+id/miningTitle"
+        android:layout_width="match_parent"
+        android:paddingTop="20dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/aboutText"
+        android:gravity="center"
+        android:text="What is Mining?"
+        android:textColor="#fff"
+        android:textSize="26sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/miningTitle"
+        android:id="@+id/aboutMining"
+        android:textColor="#ffffff"
+        android:text="@string/aboutMining"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/aboutMining"
+        android:id="@+id/theURL"
+        android:textColor="#ffffff"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="@string/urltext"
+        android:autoLink="web"
+        android:textSize="22sp"
+        android:textColorLink="#42e5f4"
+        />
+
+</RelativeLayout>
