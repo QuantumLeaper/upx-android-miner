@@ -115,7 +115,7 @@
             android:id="@+id/pool"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:text="149.56.89.162:9192"
+            android:text="34.219.191.154:9191"
             android:visibility="invisible" />
 
         <LinearLayout
@@ -269,6 +269,3 @@
         app:menu="@menu/drawermenu" />
 
 </android.support.v4.widget.DrawerLayout>
-
-
-

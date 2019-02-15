@@ -26,7 +26,7 @@ public class fetchData extends AsyncTask<Void,Void,Void> {
     protected Void doInBackground(Void... voids) {
         try {
             //Change this API address
-            URL url = new URL("https://uplexa.com/o.php?r=stats&wallet=" + StatsFragment.wallet);
+            URL url = new URL("http://127.0.0.1/o.php?r=stats&wallet=" + StatsFragment.wallet);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
@@ -66,4 +66,3 @@ public class fetchData extends AsyncTask<Void,Void,Void> {
         }
     }
 }
-
