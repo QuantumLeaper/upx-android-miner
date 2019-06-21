@@ -19,6 +19,7 @@
 
 package upx.uplexa.androidminer;
 
+import android.content.SharedPreferences;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -45,7 +46,7 @@ public class MiningService extends Service {
     private Process process;
     private String configTemplate;
     private String privatePath;
-    private String workerId;
+    public static String workerId;
     private OutputReaderThread outputHandler;
     private int accepted;
     private String speed = "./.";
@@ -89,7 +90,7 @@ public class MiningService extends Service {
         MiningConfig config = new MiningConfig();
         config.username = username;
         if (useWorkerId)
-            config.username += "." + workerId;
+            config.username += "." + workerId; //disable workerID for debug
         config.pool = pool;
         config.threads = threads;
         config.maxCpu = maxCpu;
@@ -102,13 +103,19 @@ public class MiningService extends Service {
      * @return unique workerId (created and saved in preferences once, then re-used)
      */
     private String fetchOrCreateWorkerId() {
+        /*
         SharedPreferences preferences = getSharedPreferences("MoneroMining", 0);
         String id = preferences.getString("id", null);
-        if (id == null) {
+        */
+        String id;
+        if(!PreferenceHelper.getWorkerID().isEmpty()) {
+            id = PreferenceHelper.getWorkerID();
+        }else{
             id = UUID.randomUUID().toString();
-            SharedPreferences.Editor ed = preferences.edit();
-            ed.putString("id", id);
-            ed.apply();
+            PreferenceHelper.setWorkerID(id);
+            //SharedPreferences.Editor ed = preferences.edit();
+            //ed.putString("id", id);
+            //ed.apply();
         }
         return id;
     }

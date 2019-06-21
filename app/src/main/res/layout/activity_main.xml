@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/androidbackground"
-        android:backgroundTint="#223F0FAF"
+        android:backgroundTint="#bb000000"
         android:backgroundTintMode="src_over"
         android:orientation="vertical"
         android:paddingLeft="0dp"
@@ -109,14 +109,23 @@
                 android:paddingRight="15dp"
                 android:text="No wallet set! Update your Wallet Address under 'Settings'"
                 android:textColor="#fff" />
+
         </LinearLayout>
+
+
+
+
 
         <EditText
             android:id="@+id/pool"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:text="34.219.191.154:9191"
+            android:text=""
             android:visibility="invisible" />
+
+
+
+
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -269,3 +278,6 @@
         app:menu="@menu/drawermenu" />
 
 </android.support.v4.widget.DrawerLayout>
+
+
+

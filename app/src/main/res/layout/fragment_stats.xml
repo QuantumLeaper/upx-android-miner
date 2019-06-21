@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
@@ -12,11 +13,32 @@
         android:textColor="#fff"
         android:textSize="30sp" />
 
+    <TextView
+        android:id="@+id/goStats"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:text="@string/viewstats"
+        android:textColor="#fff"
+        android:layout_below="@id/statsTitle"
+        android:textSize="30sp" />
+    <TextView
+        android:id="@+id/goStats2"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:text="https://iot-proxy.poolbux.com"
+        android:autoLink="web"
+        android:textColor="#fff"
+        android:layout_below="@id/goStats"
+        android:textSize="20sp" />
+
 
     <ScrollView
+        android:id="@+id/scrolly"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/statsTitle">
+        android:layout_below="@id/goStats2">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -27,8 +49,13 @@
         android:id="@+id/fetchdata"
 
         />
-        
+
+
+
+
     </ScrollView>
+
+
 
 
 </RelativeLayout>

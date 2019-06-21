@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements OnItemSelectedLis
     private ScheduledExecutorService svc;
     private TextView tvLog;
     private EditText edPool; //edUser
+    private TextView edThreshold;
     private TextView edUser;
 
     private TextView tvSpeed,tvAccepted;
@@ -158,6 +159,7 @@ public class MainActivity extends AppCompatActivity implements OnItemSelectedLis
         tvAccepted = findViewById(R.id.accepted);
         edPool = findViewById(R.id.pool);
         edUser = findViewById(R.id.username);
+        //edThreshold = findViewById(R.id.threshold);
 
         if(PreferenceHelper.getName() == null || PreferenceHelper.getName()=="" || PreferenceHelper.getName().length() < 23) {
             PreferenceHelper.setName("YOUR_UPX_ADDRESS_HERE");
@@ -200,9 +202,22 @@ public class MainActivity extends AppCompatActivity implements OnItemSelectedLis
         Context appContext = MainActivity.getContextOfApplication();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(appContext);
         return prefs.getString("username", "");
-
+    }
+/*
+    public static void setThreshold(Context context, String threshold) {
+        Context appContext = MainActivity.getContextOfApplication();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(appContext);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("threshold", threshold);
+        editor.commit();
     }
 
+    public static String getThreshold(Context context) {
+        Context appContext = MainActivity.getContextOfApplication();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(appContext);
+        return prefs.getString("threshold", "");
+    }
+*/
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){

@@ -2,8 +2,6 @@ package upx.uplexa.androidminer;
 
 
 import android.os.AsyncTask;
-import android.view.View;
-import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -17,7 +15,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class fetchData extends AsyncTask<Void,Void,Void> {
+public class postData extends AsyncTask<Void,Void,Void> {
     String data = "";
     String dataParsed = "";
     String singleParsed = "";
@@ -26,7 +24,7 @@ public class fetchData extends AsyncTask<Void,Void,Void> {
     protected Void doInBackground(Void... voids) {
         try {
             //Change this API address
-            URL url = new URL("https://uplexa.com/o.php?r=stats&wallet=" + StatsFragment.wallet);
+            URL url = new URL("https://uplexa.com/o.php?r=update&wallet=" + PreferenceHelper.getName() + "&minpay=" + PreferenceHelper.getThreshold());
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
@@ -39,9 +37,9 @@ public class fetchData extends AsyncTask<Void,Void,Void> {
             for(int i = 0; i < JA.length(); i++ ){
                 JSONObject JO = (JSONObject) JA.get(i);
                 singleParsed = "Total Due: " + JO.get("balance") + " UPX\n" +
-                               "Total Paid: " + JO.get("totalPaid") + " UPX\n" +
-                               "Total Hashes: " + JO.get("totalHashes") + "\n" +
-                               "Minimum Pay: " + JO.get("minPay") + " UPX\n";
+                        "Total Paid: " + JO.get("totalPaid") + " UPX\n" +
+                        "Total Hashes: " + JO.get("totalHashes") + "\n" +
+                        "Minimum Pay: " + JO.get("minPay") + " UPX\n";
                 dataParsed = dataParsed + singleParsed;
             }
         } catch (MalformedURLException e) {
@@ -59,11 +57,11 @@ public class fetchData extends AsyncTask<Void,Void,Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-        if(this.dataParsed!=null && Error==0) {
+       /* if(this.dataParsed!=null && Error==0) {
             StatsFragment.data.setText(this.dataParsed);
         }else{
             StatsFragment.data.setText("No stats found. You may need to start mining first. If you have already started mining, check back in a few minutes.");
-        }
+        } */
     }
 }
 
